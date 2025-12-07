@@ -41,16 +41,22 @@
 4. أضف المنتجات والكميات
 5. احفظ الفاتورة
 
-### تتبع المدفوعات
-- استعرض قائمة الفواتير
-- استخدم فلتر الحالة لعرض الفواتير المعلقة/المدفوعة
-- قم بتحديث حالة الدفع عند استلام المبلغ
 
+## Setup Dashboard Project 
 
-
-- **رابط الدخول:** `http://127.0.0.1:8000/login`
-- **البريد الإلكتروني:** admin@gmail.com
-- **كلمة المرور:** password
+- First clone project on your device
+  - copy .env.example and paste .env file
+  - enter in env file to connect db.
+  - Run ``` composer update```.
+  - then Run ``` composer install```.
+  - After Run ``` php artisan key:generate```.
+  - Run ``` php artisan migrate:fresh --seed ```.
+  - run ``` php artisan serve ```
+    - the login information
+  - username `admin@gmail.com`
+  - password `password`
+## Go to Ui Project
+- ```http://127.0.0.1:8000/home```
 
 - [أحمد إبراهيم](https://github.com/Ahmedibrahim1998)
 
