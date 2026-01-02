@@ -58,6 +58,24 @@
                             </div>
 
                             <div class="col">
+                                <label for="user_id">اختر المستخدم</label>
+                                <select name="user_id" class="form-control" required>
+                                    <option value="">-- اختر المستخدم --</option>
+                                    @foreach($users as $user)
+                                        <option value="{{ $user->id }}" 
+                                            {{ $user->id == $invoice->user_id ? 'selected' : '' }}>
+                                            {{ $user->name }} ({{ $user->email }})
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                             <div class="col">
+                                <label for="user_address" class="control-label">عنوان المستخدم</label>
+                                <input type="text" class="form-control" id="user_address" name="user_address"
+                                       title="يرجي ادخال عنوان المستخدم" value="{{ $invoices->user_address }}" required>
+                            </div>
+                            <div class="col">
                                 <label>تاريخ الفاتورة</label>
                                 <input class="form-control fc-datepicker" name="invoice_Date" placeholder="YYYY-MM-DD"
                                        type="text" value="{{ $invoices->invoice_Date }}" required>

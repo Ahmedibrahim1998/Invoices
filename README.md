@@ -1,79 +1,111 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+## Setup Dashboard Project 
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+- First clone project on your device
+  - copy .env.example and paste .env file
+  - enter in env file to connect db.
+  - Run ``` composer update```.
+  - then Run ``` composer install```.
+  - After Run ``` php artisan key:generate```.
+  - Run ``` php artisan migrate:fresh --seed ```.
+  - run ``` php artisan serve ```
+    - the login information
+  - username `admin@gmail.com`
+  - password `password`
+## Go to Ui Project
+- ```http://127.0.0.1:8000/home```
 
-## About Laravel
+## نظام إدارة الفواتير
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+نظام متكامل لإدارة الفواتير والمبيعات والمشتريات مصمم لتبسيط عمليات الفوترة وإدارة العملاء والمخزون.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+![شعار المشروع](public/images/logo.png)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🌟 المميزات الرئيسية
 
-## Learning Laravel
+- **إدارة الفواتير**
+  - إنشاء فواتير جديدة بسهولة
+  - معاينة الفواتير قبل الطباعة
+  - إمكانية إرسال الفواتير بالبريد الإلكتروني
+  - تتبع حالة الدفع
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **إدارة العملاء**
+  - سجل كامل للعملاء
+  - سجل المعاملات لكل عميل
+  - إشعارات تواريخ الاستحقاق
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **إدارة المنتجات**
+  - كتالوج منتجات متكامل
+  - تتبع المخزون
+  - تنبيهات نفاد الكميات
 
-## Laravel Sponsors
+- **التقارير والإحصائيات**
+  - تقارير مبيعات يومية وشهرية وسنوية
+  - إحصائيات وأرباح
+  - تصدير التقارير بصيغة Excel و PDF
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- **واجهة مستخدم متقدمة**
+  - تصميم متجاوب يعمل على جميع الأجهزة
+  - واجهة سهلة الاستخدام
+  - دعم متعدد اللغات
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-- [云软科技](http://www.yunruan.ltd/)
+## 📸 لقطات الشاشة
 
-## Contributing
+| لوحة التحكم | إدارة الفواتير | التقارير |
+|------------|----------------|----------|
+| ![لوحة التحكم](screenshots/dashboard.png) | ![الفواتير](screenshots/invoices.png) | ![التقارير](screenshots/reports.png) |
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 📝 دليل الاستخدام
 
-## Code of Conduct
+### إنشاء فاتورة جديدة
+1. انتقل إلى قسم الفواتير
+2. انقر على زر "فاتورة جديدة"
+3. اختر العميل
+4. أضف المنتجات والكميات
+5. احفظ الفاتورة
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### تتبع المدفوعات
+- استعرض قائمة الفواتير
+- استخدم فلتر الحالة لعرض الفواتير المعلقة/المدفوعة
+- قم بتحديث حالة الدفع عند استلام المبلغ
 
-## Security Vulnerabilities
+## ❓ الأسئلة الشائعة
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### كيف يمكنني استعادة كلمة المرور؟
+اضغط على "نسيت كلمة المرور" في صفحة تسجيل الدخول واتبع التعليمات.
 
-## License
+### كيف يمكنني تصدير الفواتير؟
+اذهب إلى قسم الفواتير، اختر الفواتير المطلوبة، ثم انقر على زر التصدير واختر الصيغة المطلوبة.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🤝 المساهمة
+
+نرحب بمساهماتكم! للمساهمة في المشروع:
+
+1. قم بعمل Fork للمشروع
+2. أنشئ فرعاً جديداً (`git checkout -b feature/AmazingFeature`)
+3. قم بحفظ التغييرات (`git commit -m 'Add some AmazingFeature'`)
+4. ادفع التغييرات إلى الفرع (`git push origin feature/AmazingFeature`)
+5. افتح طلب سحب (Pull Request)
+
+## بيانات الدخول الافتراضية
+
+- **رابط الدخول:** `http://127.0.0.1:8000/login`
+- **البريد الإلكتروني:** admin@example.com
+- **كلمة المرور:** password
+
+## 📞 الدعم الفني
+
+لأي استفسارات أو مشاكل، يرجى فتح issue جديد في [صفحة المشروع](https://github.com/yourusername/invoices/issues).
+
+## المساهمون
+
+- [أحمد إبراهيم](https://github.com/Ahmedibrahim1998)
+
+## الترخيص
+
+هذا المشروع مرخص تحت [MIT License](LICENSE).
+
+---
+
+<div align="center">
+  تم التطوير بواسطة فريق العمل - 2025
+</div>

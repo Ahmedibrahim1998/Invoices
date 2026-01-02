@@ -36,8 +36,9 @@ class InvoicesController extends Controller
      */
     public function create()
     {
+        $users = User::all(); // Add this line to get all users
         $sections = sections::all();
-        return view('invoices.add_invoice', compact('sections'));
+        return view('invoices.add_invoice', compact('sections','users'));
     }
 
     /**
@@ -50,6 +51,8 @@ class InvoicesController extends Controller
     {
         invoices::create([
             'invoice_number' => $request->invoice_number,
+            'user_id' => $request->user_id,
+            'user_address' => $request->user_address,
             'invoice_Date' => $request->invoice_Date,
             'Due_date' => $request->Due_date,
             'product' => $request->product,
@@ -74,7 +77,7 @@ class InvoicesController extends Controller
             'Status' => 'غير مدفوعة',
             'Value_Status' => 2,
             'note' => $request->note,
-            'user' => (Auth::user()->name),
+            'user' => $request->user_id,
         ]);
 
         if ($request->hasFile('pic')) {
@@ -139,7 +142,8 @@ class InvoicesController extends Controller
     {
         $invoices = invoices::where('id', $id)->first();
         $sections = sections::all();
-        return view('invoices.edit_invoice', compact('sections', 'invoices'));
+        $users = User::all(); // Add this line
+        return view('invoices.edit_invoice', compact('sections', 'invoices','users'));
     }
 
     /**
@@ -154,6 +158,8 @@ class InvoicesController extends Controller
         $invoices = invoices::findOrFail($request->invoice_id);
         $invoices->update([
             'invoice_number' => $request->invoice_number,
+            'user_id' => $request->user_id,
+            'user_address' => $request->user_address,
             'invoice_Date' => $request->invoice_Date,
             'Due_date' => $request->Due_date,
             'product' => $request->product,
@@ -232,7 +238,7 @@ class InvoicesController extends Controller
                 'Value_Status' => 1,
                 'note' => $request->note,
                 'Payment_Date' => $request->Payment_Date,
-                'user' => (Auth::user()->name),
+                'user' => $invoices->user_id,
             ]);
         } else {
             $invoices->update([
@@ -249,7 +255,7 @@ class InvoicesController extends Controller
                 'Value_Status' => 3,
                 'note' => $request->note,
                 'Payment_Date' => $request->Payment_Date,
-                'user' => (Auth::user()->name),
+                'user' => $invoices->user_id,
             ]);
         }
         session()->flash('Status_Update');
@@ -288,7 +294,6 @@ class InvoicesController extends Controller
 
     public function MarkAsRead_all (Request $request)
     {
-
         $userUnreadNotification= auth()->user()->unreadNotifications;
 
         if($userUnreadNotification) {
@@ -314,6 +319,13 @@ class InvoicesController extends Controller
 
         }
 
+    }
+
+    public function userInvoices($user_id)
+    {
+        $invoices = Invoices::where('user_id', $user_id)->get();
+        $user = User::findOrFail($user_id);
+        return view('invoices.user_invoices', compact('invoices', 'user'));
     }
 
 }

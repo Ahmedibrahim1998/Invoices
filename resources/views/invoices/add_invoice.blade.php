@@ -55,6 +55,25 @@
                                 <input type="text" class="form-control" id="inputName" name="invoice_number"
                                        title="يرجي ادخال رقم الفاتورة" required>
                             </div>
+                            <div class="col">
+                                <label for="user_id">اختر المستخدم</label>
+                                <select name="user_id" class="form-control" required>
+                                    <option value="">-- اختر المستخدم --</option>
+                                    @foreach($users as $user)
+                                        <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}>
+                                            {{ $user->name }} ({{ $user->email }})
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('user_id')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="col">
+                                <label for="user_address" class="control-label">عنوان المستخدم</label>
+                                <input type="text" class="form-control" id="user_address" name="user_address"
+                                       title="يرجي ادخال عنوان المستخدم" required>
+                            </div>
 
                             <div class="col">
                                 <label>تاريخ الفاتورة</label>

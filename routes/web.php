@@ -68,6 +68,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('roles', 'RoleController');
 
     Route::resource('users', 'UserController');
+    Route::get('/user/invoices/{user}', [InvoicesController::class, 'userInvoices'])->name('user.invoices');
 
 });
 

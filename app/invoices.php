@@ -11,6 +11,8 @@ class invoices extends Model
 
     protected $fillable = [
         'invoice_number',
+        "user_id",
+        "user_address",
         'invoice_Date',
         'Due_date',
         'product',
@@ -32,5 +34,10 @@ class invoices extends Model
     public function section()
     {
         return $this->belongsTo('App\sections');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
     }
 }

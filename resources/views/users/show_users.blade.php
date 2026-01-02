@@ -57,7 +57,8 @@
                                 <th class="wd-15p border-bottom-0">اسم المستخدم</th>
                                 <th class="wd-20p border-bottom-0">البريد الالكتروني</th>
                                 <th class="wd-15p border-bottom-0">حالة المستخدم</th>
-                                <th class="wd-15p border-bottom-0">نوع المستخدم</th>
+                                <th class="wd-15p border-bottom-0">الفواتير</th>
+                                <!-- <th class="wd-15p border-bottom-0">نوع المستخدم</th> -->
                                 <th class="wd-10p border-bottom-0">العمليات</th>
                             </tr>
                         </thead>
@@ -80,12 +81,17 @@
                                     </td>
 
                                     <td>
+                                        <a href="{{ route('user.invoices', $user->id) }}"  title="عرض الفواتير">
+                                            <i class="las la-file-invoice"></i> عرض الفواتير
+                                        </a>
+                                    </td>
+                                    <!-- <td>
                                         @if (!empty($user->getRoleNames()))
                                             @foreach ($user->getRoleNames() as $v)
                                                 <label class="badge badge-success">{{ $v }}</label>
                                             @endforeach
                                         @endif
-                                    </td>
+                                    </td> -->
 
                                     <td>
                                         @can('تعديل مستخدم')
